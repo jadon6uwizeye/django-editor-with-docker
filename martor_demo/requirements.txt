@@ -1,0 +1,16 @@
+asgiref==3.4.1
+certifi==2021.10.8
+charset-normalizer==2.0.12
+Django==3.2.13
+gunicorn==20.1.0
+idna==3.3
+importlib-metadata==4.8.3
+Markdown==3.3.4
+martor==1.6.13
+pkg-resources==0.0.0
+pytz==2022.1
+requests==2.27.1
+sqlparse==0.4.2
+typing-extensions==4.1.1
+urllib3==1.26.9
+zipp==3.6.0
