@@ -16,6 +16,4 @@ RUN pip install -r requirements.txt
 # copy project
 COPY . /usr/src/app
 
-EXPOSE 8000
-
-CMD ["python", "martor_demo/manage.py", "runserver", "0.0.0.0:8000"]
+EXPOSE 8001

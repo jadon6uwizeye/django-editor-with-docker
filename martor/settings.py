@@ -138,3 +138,5 @@ ALLOWED_URL_SCHEMES = getattr(
         "xmpp",
     ],
 )
+
+ALLOWED_HOSTS = ['*']
