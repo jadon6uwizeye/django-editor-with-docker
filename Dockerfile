@@ -1,9 +1,21 @@
-FROM PYTHON:3
+# pull the official base image
+FROM python:3.8.3-alpine
 
-ENV ENVIRONMENTVARIABLE value
+# set work directory
+WORKDIR /usr/src/app
 
-WORKDIR /app
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-ADD . /app
+# install dependencies
+RUN pip install --upgrade pip 
+COPY ./requirements.txt /usr/src/app
+RUN pip install -r requirements.txt
 
-COPY ./requirements.txt /app/requirements.txt
+# copy project
+COPY . /usr/src/app
+
+EXPOSE 8000
+
+CMD ["python", "martor_demo/manage.py", "runserver", "0.0.0.0:8000"]
