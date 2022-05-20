@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  web:
-    build: .
-    container_name: django_editor
-    command: python martor_demo/manage.py runserver 0.0.0.0:8001
-    ports:
-      - "8001:8001"

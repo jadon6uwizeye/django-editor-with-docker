@@ -8,16 +8,17 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# add and run as non-root user
+RUN adduser -D myuser
+USER myuser
+
 # install dependencies
 RUN pip install --upgrade pip 
-COPY ./requirements.txt /usr/src/app
+COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
 # copy project
-COPY . /usr/src/app
+COPY . .
 
 # collect static files
-RUN python manage.py collectstatic --noinput
-
-# run gunicorn
-CMD gunicorn martor_demo/martor_demo.wsgi:application --bind 0.0.0.0:$PORT
+RUN python ./martor_demo/manage.py collectstatic --noinput

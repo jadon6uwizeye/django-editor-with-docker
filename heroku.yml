@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    container_name: django_editor
+    command: gunicorn martor_demo/martor_demo.wsgi:application --bind 0.0.0.0:$PORT1
