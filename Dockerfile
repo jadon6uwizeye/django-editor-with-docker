@@ -16,4 +16,8 @@ RUN pip install -r requirements.txt
 # copy project
 COPY . /usr/src/app
 
-EXPOSE 8001
+# collect static files
+RUN python manage.py collectstatic --noinput
+
+# run gunicorn
+CMD gunicorn martor_demo/martor_demo.wsgi:application --bind 0.0.0.0:$PORT
